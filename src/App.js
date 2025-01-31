@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import Home from './components/home/Home.tsx'
+import HomeLayout from './components/home/HomeLayout.tsx'
 import Layout from './components/Layout.tsx'
-import Cases from './components/cases/Cases.tsx'
-import About from './components/about/About.tsx'
-import Contact from './components/contact/Contact.tsx'
+import CasosLayout from './components/cases/CasosLayout.tsx'
+import ContactLayout from './components/contact/ContactLayout.tsx'
 import Formulario from './components/home/Formulario.tsx';
 import Profile from './components/home/Profile.tsx'
 import Tips from './components/about/Tips.tsx';
@@ -15,6 +14,7 @@ import Redes from './components/contact/Redes.tsx'
 import DejaMensaje from './components/contact/DejaMensaje.tsx'
 import Llamame from './components/contact/Llamame.tsx'
 import Bio from './components/about/Bio.tsx'
+import AboutLayout from './components/about/AboutLayout.tsx';
 
 
 function App() {
@@ -23,24 +23,28 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />} >
-          <Route path="/home" element={<Home />} />
-          <Route path="/home/formulario" element={<Formulario />} />
-          <Route path="/home/perfil" element={<Profile />} />
+            <Route path="home" element={<HomeLayout />}>
+            <Route path="formulario" element={<Formulario />} />
+            <Route path="perfil" element={<Profile />} />
+          </Route>
 
-          <Route path="/about" element={<About />} />
-          <Route path="/about/bio" element={<Bio />} />
-          <Route path="/about/trabajo" element={<MyJob />} />
-          <Route path="/about/tips" element={<Tips />} />
+          <Route path="about" element={<AboutLayout/>}>
+            <Route path="bio" element={<Bio />} />
+            <Route path="trabajo" element={<MyJob />} />
+            <Route path="tips" element={<Tips />} />
+          </Route>
 
-          <Route path="/exitCases" element={<Cases />} />
-          <Route path="/exitCases/clientes" element={<Clientes />} />
-          <Route path="/exitCases/logros" element={<Logros />} />
-          <Route path="/exitCases/colaborar" element={<Colaborar />} />
+          <Route path="exitCases" element={<CasosLayout />}>
+            <Route path="clientes" element={<Clientes />} />
+            <Route path="logros" element={<Logros />} />
+            <Route path="colaborar" element={<Colaborar />} />
+          </Route>
 
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/contact/redes" element={<Redes />} />
-          <Route path="/contact/dejaUnMensaje" element={<DejaMensaje />} />
-          <Route path="/contact/llamame" element={<Llamame />} />
+          <Route path="contact" element={<ContactLayout />}>
+            <Route path="redes" element={<Redes />} />
+            <Route path="dejaUnMensaje" element={<DejaMensaje />} />
+            <Route path="llamame" element={<Llamame />} />
+   	      </Route>
    	   </Route>
       </Routes>
     </BrowserRouter>
